@@ -1,0 +1,180 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Gowun Dodum", sans-serif;
+
+  min-height: 100vh;
+  padding: 50px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #0f172a 0%,
+      #1e293b 30%,
+      #334155 60%,
+      #64748b 100%
+    );
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 제목 */
+
+h1 {
+  margin-bottom: 40px;
+
+  color: white;
+
+  font-size: 3rem;
+  font-weight: 400;
+
+  text-align: center;
+
+  letter-spacing: 2px;
+
+  text-shadow:
+    0 0 15px rgba(255,255,255,0.3);
+}
+
+/* 프로젝트 영역 */
+
+#projects {
+  width: 100%;
+  max-width: 1000px;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 24px;
+}
+
+/* 작품 카드 */
+
+.cell {
+  aspect-ratio: 16 / 9;
+
+  position: relative;
+  overflow: hidden;
+
+  border-radius: 24px;
+
+  background: rgba(255,255,255,0.08);
+
+  border: 1px solid rgba(255,255,255,0.15);
+
+  backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.4);
+
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.cell:hover {
+  transform:
+    translateY(-10px)
+    scale(1.02);
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,0.55);
+}
+
+/* 카드 위 반사광 */
+
+.cell::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.12),
+      rgba(255,255,255,0)
+    );
+
+  z-index: 2;
+
+  pointer-events: none;
+}
+
+/* 프로젝트 제목 */
+
+.project-title {
+  position: absolute;
+
+  top: 12px;
+  left: 12px;
+
+  z-index: 999;
+
+  padding: 6px 14px;
+
+  border-radius: 999px;
+
+  background: rgba(0,0,0,0.65);
+
+  color: white;
+
+  font-size: 0.9rem;
+  font-weight: bold;
+
+  letter-spacing: 1px;
+
+  backdrop-filter: blur(6px);
+}
+
+/* iframe */
+
+.cell iframe {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 600px;
+  height: 400px;
+
+  border: none;
+
+  transform-origin: top left;
+  transform: scale(0.5);
+}
+
+/* 푸터 */
+
+footer {
+  margin-top: 40px;
+
+  color: rgba(255,255,255,0.75);
+
+  font-size: 1rem;
+
+  letter-spacing: 1px;
+}
+
+/* 모바일 */
+
+@media (max-width: 700px) {
+
+  body {
+    padding: 25px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  #projects {
+    grid-template-columns: 1fr;
+  }
+}
